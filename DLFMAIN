@@ -31,7 +31,8 @@ local BlackListed = {
     "GodFatherHud",
     "Jackkbro",
     "GodFatherFud",
-    "GodFatherXud"
+    "GodFatherXud",
+    ""
     
     
 }
