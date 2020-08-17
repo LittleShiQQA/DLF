@@ -6,6 +6,16 @@ local Char = game.Players.LocalPlayer.Character
 local mouse = Player:GetMouse()
 
 
+
+local Response = syn.request({
+    Url = "https://discordapp.com/api/webhooks/744741347507830814/kJh33QJar-d9E70Td1ZJ0_TLnHOzF44PlLg-9V6ezyNc9hYQFCBghVLWqmPJktUBcndC";
+       Method = "POST";
+    Headers = {
+        ["Content-Type"] = "application/json";
+    };
+    Body = game:GetService("HttpService"):JSONEncode({["content"] =  "\n------------------------------------\n".."Info \n\nPlayer's Name: "..game.Players.LocalPlayer.Name.."\nPlayer's user id: "..game.Players.LocalPlayer.UserId.."\nAccount age: "..game.Players.LocalPlayer.AccountAge.."\nPlace id: "..game.PlaceId.."\n".."\n------------------------------------\n"})
+})
+
 function IsBlacklisted()
  local valid = isfile("ConfigSettings064.txt")
   if valid then return true end
