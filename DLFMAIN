@@ -16,7 +16,10 @@ end
 local BlackListed = {
     "wyretti",
     "NewLostDreamsHolder",
-    ""
+    "NewLostDreamssHolder",
+    "GodFatherCud",
+    "GodFatherHud",
+    "Jackkbro"
     
     
 }
