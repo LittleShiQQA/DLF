@@ -2,7 +2,7 @@
 local library = loadstring(game:HttpGet(('https://pastebinp.com/raw/FsJak6AT')))() -- It's obfuscated, I won't let you see my ugly coding skills. =)
 
 local Player = game.Players.LocalPlayer
-
+local Char = game.Players.LocalPlayer.Character
 local mouse = Player:GetMouse()
 
 
@@ -16,10 +16,7 @@ end
 local BlackListed = {
     "wyretti",
     "NewLostDreamsHolder",
-    "NewLostDreamssHolder",
-    "GodFatherCud",
-    "GodFatherHud",
-    "Jackkbro"
+    ""
     
     
 }
@@ -199,6 +196,10 @@ local w = w:CreateFolder("Credits <3")
 
 w:Label("Made By Blaroo#8041",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111)) --BgColor,TextColor
 w:Label("UI By Wally",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111)) --BgColor,TextColor
+w:Label("Discord Server: https://discord.gg/RXn3DXc",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111)) --BgColor,TextColor
+w:Button("Copy invite to clipboard",function()
+    setclipboard("https://discord.gg/RXn3DXc")
+end)
 w:Label("Right CTRL to hide the GUI",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111)) --BgColor,TextColor
 
 local Saved = false
@@ -259,6 +260,7 @@ end
 end
 end
 end)
+
 
 MainFolder:Label("Press once or it will Kick you",Color3.fromRGB(38,38,38),Color3.fromRGB(0,216,111)) --BgColor,TextColor
 
