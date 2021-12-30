@@ -208,6 +208,7 @@ function PathFind.new(agent, agentParameters)
 			self._events.Blocked:Fire(self._agent, self._waypoints[...])
 		end
 	end)
+				print("Passed Checks!!!")
 
 	return self
 end
@@ -231,6 +232,7 @@ function PathFind:Destroy()
 	self._position = nil
 	self._target = nil
 	setmetatable(self, nil)
+	print("Destroyed")
 end
 
 function PathFind:Stop()
@@ -243,10 +245,12 @@ function PathFind:Stop()
 	self._status = Path.StatusType.Idle
 	self._visualWaypoints = destroyVisualWaypoints(self._visualWaypoints)
 	self._events.Stopped:Fire(self._model)
+	print("Stopped")
+
 end
 
 function PathFind.Run(target)
-
+	print("Hell ya running")
 	--Non-humanoid handle case
 	if not target and not self._humanoid and self._target then
 		moveToFinished(self, true)
@@ -315,6 +319,7 @@ function PathFind.Run(target)
 		self._currentWaypoint = getNonHumanoidWaypoint(self)
 		moveToFinished(self, true)
 	end
+		print("Sheesh")
 	return true
 end
 
