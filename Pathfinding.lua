@@ -174,10 +174,12 @@ end
 
 --[[ CONSTRUCTOR ]]--
 function Path.new(agent, agentParameters)
+	print("Checking")
 	if not (agent and agent:IsA("Model") and agent.PrimaryPart) then
 		print(error, "Pathfinding agent must be a valid Model Instance with a set PrimaryPart.")
 	end
-
+	
+	print("Passed check 1")
 	local self = setmetatable({
 		_events = {
 			Reached = Instance.new("BindableEvent");
