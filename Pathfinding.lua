@@ -245,7 +245,7 @@ function PathFind:Stop()
 	self._events.Stopped:Fire(self._model)
 end
 
-function PathFind:Run(target)
+function PathFind.Run(target)
 
 	--Non-humanoid handle case
 	if not target and not self._humanoid and self._target then
