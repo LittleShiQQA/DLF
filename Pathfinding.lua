@@ -5,6 +5,8 @@ Website: https://00xima16.gitbook.io/simplepath-module/
 ---------------------------------------------------------------------
 ]]
 
+local PathFind = {}
+
 local Settings = {
 	TIME_VARIANCE = 0.07;
 	COMPARISON_CHECKS = 1;
@@ -162,7 +164,7 @@ local function comparePosition(self)
 end
 
 --[[ STATIC METHODS ]]--
-function Path.GetNearestCharacter(fromPosition)
+function PathFind.GetNearestCharacter(fromPosition)
 	local character, dist = nil, math.huge
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player.Character and (player.Character.PrimaryPart.Position - fromPosition).Magnitude < dist then
@@ -173,7 +175,7 @@ function Path.GetNearestCharacter(fromPosition)
 end
 
 --[[ CONSTRUCTOR ]]--
-function Path.new(agent, agentParameters)
+function PathFind.new(agent, agentParameters)
 	print("Checking")
 	if not (agent and agent:IsA("Model") and agent.PrimaryPart) then
 		print(error, "Pathfinding agent must be a valid Model Instance with a set PrimaryPart.")
@@ -212,7 +214,7 @@ end
 
 
 --[[ NON-STATIC METHODS ]]--
-function Path:Destroy()
+function PathFind:Destroy()
 	for _, event in ipairs(self._events) do
 		event:Destroy()
 	end
@@ -231,7 +233,7 @@ function Path:Destroy()
 	setmetatable(self, nil)
 end
 
-function Path:Stop()
+function PathFind:Stop()
 	if not self._humanoid then
 		print(error, "Attempt to call Path:Stop() on a non-humanoid.")
 		return
@@ -243,7 +245,7 @@ function Path:Stop()
 	self._events.Stopped:Fire(self._model)
 end
 
-function Path:Run(target)
+function PathFind:Run(target)
 
 	--Non-humanoid handle case
 	if not target and not self._humanoid and self._target then
@@ -316,4 +318,4 @@ function Path:Run(target)
 	return true
 end
 
-return
+return PathFind
