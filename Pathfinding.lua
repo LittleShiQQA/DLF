@@ -26,7 +26,7 @@ local Path = {
 }
 Path.__index = function(table, index)
 	if index == "Stopped" and not table._humanoid then
-		output(error, "Attempt to use Path.Stopped on a non-humanoid.")
+		print(error, "Attempt to use Path.Stopped on a non-humanoid.")
 	end
 	return (table._events[index] and table._events[index].Event)
 		or (index == "LastError" and table._lastError)
@@ -175,7 +175,7 @@ end
 --[[ CONSTRUCTOR ]]--
 function Path.new(agent, agentParameters)
 	if not (agent and agent:IsA("Model") and agent.PrimaryPart) then
-		output(error, "Pathfinding agent must be a valid Model Instance with a set PrimaryPart.")
+		print(error, "Pathfinding agent must be a valid Model Instance with a set PrimaryPart.")
 	end
 
 	local self = setmetatable({
@@ -231,7 +231,7 @@ end
 
 function Path:Stop()
 	if not self._humanoid then
-		output(error, "Attempt to call Path:Stop() on a non-humanoid.")
+		print(error, "Attempt to call Path:Stop() on a non-humanoid.")
 		return
 	end
 	if self._status == Path.StatusType.Idle then output(function(m) warn(debug.traceback(m)) end, "Attempt to run Path:Stop() in idle state") return end
